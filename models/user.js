@@ -13,9 +13,14 @@ const schema = new mongoose.Schema({
     lowercase: true,
     trim: true
   },
+  username: {
+    type: String,
+    required: true
+  },
   passwordHashAndSalt: {
     type: String
-  }
+  },
+  image: String
 });
 
 const User = mongoose.model('User', schema);
