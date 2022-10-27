@@ -53,4 +53,6 @@
         - followee: ObjectId, red:User, required
         - timestamps: true
 - Other considerations
+- "multer": "^1.4.5-lts.1",
+- "multer-storage-cloudinary": "^4.0.0",
 - Wishlist
