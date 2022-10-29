@@ -1,4 +1,4 @@
-- Pages
+## Pages
     - Home page
         - List latest deals
         - For authenticated users, display form to create a deal 
@@ -12,7 +12,7 @@
         - Display option for 'connected'
     - Profile edit
         - Allows to the user the edit their profile
-- Route Handlers
+## Route Handlers
     - '/'.
         - GET '/' Load list of latest publications
     - '/deal'
@@ -34,7 +34,7 @@
         - POST '/authentication/sign-up' Handle sign up form submission
         - 
         - 
-- Models
+## Models
     - User
         - name: String, required
         - email: String required
@@ -52,7 +52,10 @@
         - follower: ObjectId, ref:user, required
         - followee: ObjectId, red:User, required
         - timestamps: true
-- Other considerations
-- "multer": "^1.4.5-lts.1",
-- "multer-storage-cloudinary": "^4.0.0",
-- Wishlist
+## Other considerations
+## "multer": "^1.4.5-lts.1",
+## "multer-storage-cloudinary": "^4.0.0",
+## Wishlist
+    -Chat Window
+    -Distance
+    -Multiple Images
