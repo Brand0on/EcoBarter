@@ -21,7 +21,11 @@ const profileRouter = require('./routes/profile');
 
 const authenticationRouter = require('./routes/authentication');
 
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
+
 const app = express();
+
+console.log(process.env.CLOUDINARY_URL);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
