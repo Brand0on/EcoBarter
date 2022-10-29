@@ -1,5 +1,5 @@
 'use strict';
-
+//testing
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -20,10 +20,6 @@ const profileRouter = require('./routes/profile');
 
 const authenticationRouter = require('./routes/authentication');
 
-<<<<<<< HEAD
-=======
-hbs.registerPartials(path.join(__dirname, 'views/partials'));
->>>>>>> 0caaf010f6245f679d13e45ad91107b2942318dd
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
