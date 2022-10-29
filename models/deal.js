@@ -6,21 +6,17 @@ const dealSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true,
-      maxlength: 27,
-      minlength: 3,
+
       trim: true
     },
     description: {
       type: String,
-      required: true,
-      minlength: 20,
-      maxlength: 300,
+
       trim: true
     },
     type: {
       type: String,
-      required: true,
+
       enum: ['service', 'object']
     },
     author: {
@@ -30,8 +26,7 @@ const dealSchema = new mongoose.Schema(
     },
 
     image: {
-      type: [String],
-      required: true
+      type: String
     }
   },
   {

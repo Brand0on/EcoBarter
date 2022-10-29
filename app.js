@@ -20,10 +20,7 @@ const profileRouter = require('./routes/profile');
 
 const authenticationRouter = require('./routes/authentication');
 
-<<<<<<< HEAD
-=======
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
->>>>>>> 0caaf010f6245f679d13e45ad91107b2942318dd
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -63,8 +60,8 @@ app.use(
 app.use(authenticationDeserializer);
 
 app.use('/', baseRouter);
-app.use('/authentication', authenticationRouter);
 app.use('/deal', dealRouter);
+app.use('/authentication', authenticationRouter);
 app.use('/profile', profileRouter);
 
 // Catch missing routes and forward to error handler

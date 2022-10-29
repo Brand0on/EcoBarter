@@ -12,25 +12,31 @@ dealRouter.post(
   routeGuardMiddleware,
   upload.single('image'),
   (req, res, next) => {
-    const { description } = req.body;
+    console.log('HERE');
+    const { description, title, type } = req.body;
+
     const author = req.user._id;
     let image;
     if (req.file) {
       image = req.file.path;
-      Deal.create({
-        title,
-        description,
-        type,
-        author,
-        image
-      })
-        .then(() => {
-          res.redirect('/');
-        })
-        .catch((error) => {
-          next(error);
-        });
     }
+    console.log(image);
+
+    Deal.create({
+      title,
+      description,
+      type,
+      author,
+      image
+    })
+      .then((deal) => {
+        console.log(deal);
+        res.redirect('/');
+      })
+      .catch((error) => {
+        console.log(error);
+        next(error);
+      });
   }
 );
 
@@ -65,6 +71,7 @@ dealRouter.post('/:id/edit', routeGuardMiddleware, (req, res, next) => {
     image
   })
     .then((deal) => {
+      console.log(deal);
       res.redirect('/');
     })
     .catch((error) => {

@@ -5,7 +5,7 @@
     - Create a navbar that contains sing in, sign up(for visitors) , a search bar and a filter
   - Deal page
     - Allows user to edit/delete one of their deals
-    - Display the deal, location, range (km), date of publication, type of deal
+    - Display the deal, location, range (km), date of deal, type of deal
   - Profile
     - Display a information about the person
     - Display all the deals that the person created
@@ -14,7 +14,7 @@
     - Allows to the user the edit their profile
 - Route Handlers
   - '/'.
-    - GET '/' Load list of latest publications
+    - GET '/' Load list of latest deals
   - '/deal'
     - POST '/deal/create' Handles deals creation form submission.
     - GET '/deal/:id/edit' Load existing deal, render edit form.

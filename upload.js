@@ -1,12 +1,12 @@
 'user strict';
 
 const multer = require('multer');
-const cloudinary = require('cloudinary');
-const multerStorageCloudinary = require('multer-storage-cloudinary');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const upload = multer({
-  storage: new multerStorageCloudinary.CloudinaryStorage({
-    cloudinary: cloudinary.v2
+  storage: new CloudinaryStorage({
+    cloudinary: cloudinary
   })
 });
 

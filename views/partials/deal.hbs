@@ -1,5 +1,7 @@
 <div>
-  <img src="{{image}}" alt="description" />
+  {{#if image}}
+    <img src="{{image}}" alt="description" />
+  {{/if}}
   <p>{{description}}</p>
   <small>{{createdAt}}
     - by
