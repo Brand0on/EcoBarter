@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
     .sort({
       createdAt: -1
     })
+    .populate('author')
     .then((deals) => {
       res.render('home', { deals });
     })
