@@ -15,9 +15,9 @@ const mongoose = require('mongoose');
 const authenticationDeserializer = require('./middleware/authentication-deserializer.js');
 const baseRouter = require('./routes/base');
 const dealRouter = require('./routes/deal');
+const profileRouter = require('./routes/profile');
 
 const authenticationRouter = require('./routes/authentication');
-
 
 const app = express();
 
@@ -59,7 +59,8 @@ app.use(authenticationDeserializer);
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
-app.use('/deal', dealRouter)
+app.use('/deal', dealRouter);
+app.use('/profile', profileRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
