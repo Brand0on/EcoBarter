@@ -1,10 +1,17 @@
 <form method="POST" action="/deal/create" enctype="multipart/form-data">
 
-  <label for="input-message">Message</label>
-  <textarea name="message" id="input-message"></textarea>
+  <label for="input-title">Title</label>
+  <textarea name="title" id="input-title"></textarea>
 
-  <label for="input-picture">Picture </label>
-  <input type="file" name="picture" id="input-picture" />
+  <label for="input-description">Message</label>
+  <textarea name="description" id="input-description"></textarea>
+  <label for="deal-type">Select the deal type</label>
+  <select name="type" id="type"><option value="object">Object</option><option
+      value="service"
+    >Service</option></select>
+
+  <label for="input-image">Image </label>
+  <input type="file" name="image" id="input-image" />
 
   <button>Offer Deal</button>
 </form>
