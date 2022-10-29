@@ -17,20 +17,20 @@ dealRouter.post(
     let image;
     if (req.file) {
       image = req.file.path;
-      Deal.create({
-        title,
-        description,
-        type,
-        author,
-        image
-      })
-        .then(() => {
-          res.redirect('/');
-        })
-        .catch((error) => {
-          next(error);
-        });
     }
+    Deal.create({
+      title,
+      description,
+      type,
+      author,
+      image
+    })
+      .then(() => {
+        res.redirect('/');
+      })
+      .catch((error) => {
+        next(error);
+      });
   }
 );
 

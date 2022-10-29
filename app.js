@@ -1,6 +1,5 @@
 'use strict';
-//testing
-/// commenting to test git
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -23,6 +22,7 @@ const authenticationRouter = require('./routes/authentication');
 
 const app = express();
 
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
