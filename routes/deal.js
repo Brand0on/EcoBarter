@@ -6,7 +6,7 @@ const Deal = require('./../models/deal');
 const routeGuardMiddleware = require('./../middleware/route-guard');
 const upload = require('./../upload');
 
-//POST '/deal/create'
+//POST '/create'
 dealRouter.post(
   '/create',
   routeGuardMiddleware,
@@ -20,11 +20,8 @@ dealRouter.post(
     if (req.file) {
       image = req.file.path;
     }
-<<<<<<< HEAD
-=======
     console.log(image);
 
->>>>>>> f69f6489572a0e522bcc789471d0e6b594d52a17
     Deal.create({
       title,
       description,
@@ -32,25 +29,24 @@ dealRouter.post(
       author,
       image
     })
-<<<<<<< HEAD
       .then(() => {
         res.redirect('/');
       })
       .catch((error) => {
-=======
+        next(error);
+      })
       .then((deal) => {
         console.log(deal);
         res.redirect('/');
       })
       .catch((error) => {
         console.log(error);
->>>>>>> f69f6489572a0e522bcc789471d0e6b594d52a17
         next(error);
       });
   }
 );
 
-//GET '/deal/:id/edit'
+//GET '/:id/edit'
 dealRouter.get(
   '/:id/edit',
   routeGuardMiddleware,
@@ -65,31 +61,36 @@ dealRouter.get(
   }
 );
 
-//POST '/deal/:id/edit'
-dealRouter.post('/:id/edit', routeGuardMiddleware, (req, res, next) => {
-  const { id } = req.params;
-  const { message } = req.body;
-  let path;
-  if (req.file) {
-    picture = req.file.path;
-  }
+//POST '/:id/edit'
+dealRouter.post(
+  '/:id/edit',
+  routeGuardMiddleware,
+  upload.single('image'),
+  (req, res, next) => {
+    const { id } = req.params;
+    const { message } = req.body;
+    let path;
+    if (req.file) {
+      picture = req.file.path;
+    }
 
-  Deal.findByIdAndUpdate(id, {
-    title,
-    description,
-    type,
-    image
-  })
-    .then((deal) => {
-      console.log(deal);
-      res.redirect('/');
+    Deal.findByIdAndUpdate(id, {
+      title,
+      description,
+      type,
+      image
     })
-    .catch((error) => {
-      next(error);
-    });
-});
+      .then((deal) => {
+        console.log(deal);
+        res.redirect('/');
+      })
+      .catch((error) => {
+        next(error);
+      });
+  }
+);
 
-//POST '/deal/:id/delete'
+//POST '/:id/delete'
 dealRouter.post('/:id/delete', routeGuardMiddleware, (req, res, next) => {
   const { id } = req.params;
   Deal.findByIdAndDelete(id)
