@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 
 const connectSchema = new mongoose.Schema(
   {
-    connecter: {
+    connector: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User'
     },
-    connectee: {
+    connected: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User'

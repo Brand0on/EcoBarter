@@ -2,8 +2,15 @@
   {{#if image}}
     <img src="{{image}}" alt="description" />
   {{/if}}
+  <span>
+    <h3>{{type}}</h3>
+    <h3>{{title}}</h3>
+  </span>
+
   <p>{{description}}</p>
   <small>{{createdAt}}
     - by
-    <a href="/profile/{{author._id}}">{{author.name}}</a></small>
+    <span style="text-transform:uppercase;">
+      <a href="/profile/{{author._id}}">{{author.name}}</a></span>
+  </small>
 </div>
