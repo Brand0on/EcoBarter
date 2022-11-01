@@ -6,7 +6,7 @@ const Deal = require('./../models/deal');
 const routeGuardMiddleware = require('./../middleware/route-guard');
 const upload = require('./../upload');
 
-//POST '/deal/create'
+//POST '/create'
 dealRouter.post(
   '/create',
   routeGuardMiddleware,
@@ -29,6 +29,12 @@ dealRouter.post(
       author,
       image
     })
+      .then(() => {
+        res.redirect('/');
+      })
+      .catch((error) => {
+        next(error);
+      })
       .then((deal) => {
         console.log(deal);
         res.redirect('/');
@@ -40,7 +46,7 @@ dealRouter.post(
   }
 );
 
-//GET '/deal/:id/edit'
+//GET '/:id/edit'
 dealRouter.get(
   '/:id/edit',
   routeGuardMiddleware,
@@ -55,31 +61,36 @@ dealRouter.get(
   }
 );
 
-//POST '/deal/:id/edit'
-dealRouter.post('/:id/edit', routeGuardMiddleware, (req, res, next) => {
-  const { id } = req.params;
-  const { message } = req.body;
-  let path;
-  if (req.file) {
-    picture = req.file.path;
-  }
+//POST '/:id/edit'
+dealRouter.post(
+  '/:id/edit',
+  routeGuardMiddleware,
+  upload.single('image'),
+  (req, res, next) => {
+    const { id } = req.params;
+    const { message } = req.body;
+    let path;
+    if (req.file) {
+      picture = req.file.path;
+    }
 
-  Deal.findByIdAndUpdate(id, {
-    title,
-    description,
-    type,
-    image
-  })
-    .then((deal) => {
-      console.log(deal);
-      res.redirect('/');
+    Deal.findByIdAndUpdate(id, {
+      title,
+      description,
+      type,
+      image
     })
-    .catch((error) => {
-      next(error);
-    });
-});
+      .then((deal) => {
+        console.log(deal);
+        res.redirect('/');
+      })
+      .catch((error) => {
+        next(error);
+      });
+  }
+);
 
-//POST '/deal/:id/delete'
+//POST '/:id/delete'
 dealRouter.post('/:id/delete', routeGuardMiddleware, (req, res, next) => {
   const { id } = req.params;
   Deal.findByIdAndDelete(id)
