@@ -1,4 +1,38 @@
+
+<header style="display: flex; align-items:center; gap:16px">
 {{#if profile.picture}}
   <img src="{{profile.picture}}" alt="{{profile.name}}" />
 {{/if}}
-{{profile.name}}
+
+<h1>{{profile.name}}</h1>
+  {{!-- If no user is authenticated, no action should be shown --}}
+
+{{#if user}}
+
+{{#if isOwnProfile}}
+<a href="/profile/edit">Edit Profile</a>
+
+{{else}}
+
+{{#if follow}}
+
+{{!-- Show follow button if no "follow" relationship exists --}}
+<form method="post" action="/profile/{{profile._id}}/disconnect" >
+<button>Connected</button>
+</form>
+
+{{!-- Show following button if "follow" relationship exists --}}
+<form method="post" action="/profile/{{profile._id}}/connect">
+<button>Connect</button>
+</form>
+
+{{/if}}
+{{/if}}
+{{/if}}
+</header>
+
+<h3>{{profile.name}}'s Latest Deals</h3>
+
+{{#each deals}}
+{{>deal}}
+{{/each}}
