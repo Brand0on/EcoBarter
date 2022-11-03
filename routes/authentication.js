@@ -3,6 +3,7 @@
 const { Router } = require('express');
 
 const bcryptjs = require('bcryptjs');
+const upload = require('./../upload');
 const User = require('./../models/user');
 
 const router = new Router();
@@ -11,8 +12,12 @@ router.get('/sign-up', (req, res, next) => {
   res.render('sign-up');
 });
 
-router.post('/sign-up', (req, res, next) => {
+router.post('/sign-up', upload.single('image'), (req, res, next) => {
   const { name, email, username, password } = req.body;
+  let image;
+  if (req.file) {
+    image = req.file.path;
+  }
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
@@ -20,7 +25,8 @@ router.post('/sign-up', (req, res, next) => {
         name,
         email,
         username,
-        passwordHashAndSalt: hash
+        passwordHashAndSalt: hash,
+        image
       });
     })
     .then((user) => {

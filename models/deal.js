@@ -39,5 +39,16 @@ const dealSchema = new mongoose.Schema(
   }
 );
 
+dealSchema.methods.getAddedInformation = function (userId) {
+  const deal = this;
+  const hasBeenUpdated = String(deal.CreatedAt) !== String(deal.updatedAt);
+  const isOwn = userId ? String(userId) === String(deal.author) : false;
+  return {
+    ...deal.toJSON(),
+    hasBeenUpdated,
+    isOwn
+  };
+};
+
 const Deal = mongoose.model('Deal', dealSchema);
 module.exports = Deal;
