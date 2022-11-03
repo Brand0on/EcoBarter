@@ -1,0 +1,16 @@
+<form method="POST" enctype="multipart/form-data">
+  <label for="input-message">Deal description</label>
+  <textarea id="input-message" name="message">{{deal.description}}</textarea>
+
+  {{#if deal.picture}}
+    <img src="{{deal.image}}" alt="{{deal.description}}" />
+  {{/if}}
+  <label for="input-image">Image <small>(optional)</small></label>
+  <input id="input-image" type="file" name="image" />
+
+  <button>Edit Deal</button>
+</form>
+
+<form method="POST" action="/deal/{{deal.description}}/delete">
+  <button>Delete</button>
+</form>
