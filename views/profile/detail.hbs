@@ -11,12 +11,16 @@
   <a href="/profile/edit">Edit Profile</a>
   {{/if}}
 
-  {{#if connect}}
+  {{#unless isOwnProfile}}
+
+   {{#if connect}}
 
   {{!-- Show follow button if no "follow" relationship exists --}}
   <form method="post" action="/profile/{{profile._id}}/disconnect" >
   <button>Connected</button>
   </form>
+
+  <p>{{connect.connected.email}}</p>
 
   {{else}}
 
@@ -25,6 +29,9 @@
   <button>Connect</button>
   </form>
   {{/if}}
+  {{/unless}}
+
+ 
 
 
 </header>

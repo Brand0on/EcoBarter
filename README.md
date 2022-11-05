@@ -58,3 +58,5 @@
 
 - Other considerations
 - Wishlist
+  - editing only for your deals
+  -

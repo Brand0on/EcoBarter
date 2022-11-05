@@ -6,7 +6,10 @@
     style="text-transform:uppercase;"
   >{{deal.title}}</textarea>
   <label for="input-message">Deal description</label>
-  <textarea id="input-message" name="message">{{deal.description}}</textarea>
+  <textarea
+    id="input-message"
+    name="description"
+  >{{deal.description}}</textarea>
 
   {{#if deal.image}}
     <img src="{{deal.image}}" alt="{{deal.description}}" />
