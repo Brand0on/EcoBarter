@@ -62,7 +62,7 @@ profileRouter.get('/:id', (req, res, next) => {
           return Connect.findOne({
             connector: req.user._id,
             connected: id
-          });
+          }).populate('connected');
         } else {
           return null;
         }
@@ -73,7 +73,7 @@ profileRouter.get('/:id', (req, res, next) => {
           const hasBeenUpdated =
             String(deal.CreatedAt) !== String(deal.updatedAt);
           const isOwn = req.user
-            ? String(req.user._id) === String(deal.author)
+            ? String(req.user._id) === String(deal.author._id)
             : false;
           return {
             //the .toJSON() method get a compatible JSON version of the deal document
@@ -82,6 +82,8 @@ profileRouter.get('/:id', (req, res, next) => {
             isOwn
           };
         });
+
+        console.log(connect);
 
         res.render('profile/detail', {
           profile: user,
@@ -109,11 +111,11 @@ profileRouter.post('/:id/connect', routeGuardMiddleware, (req, res, next) => {
 });
 
 profileRouter.post(
-  '/profile/:id/disconnect',
+  '/:id/disconnect',
   routeGuardMiddleware,
   (req, res, next) => {
     const { id } = req.params;
-    Follow.findOneAndDelete({
+    Connect.findOneAndDelete({
       connector: req.user._id,
       connected: id
     })

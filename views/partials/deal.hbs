@@ -13,5 +13,7 @@
     <span style="text-transform:uppercase;">
       <a href="/profile/{{author._id}}">{{author.name}}</a></span>
   </small>
-  <a href="/deal/{{_id}}/edit">Edit</a>
+  {{#if isOwn}}
+    <a href="/deal/{{_id}}/edit">Edit</a>
+  {{/if}}
 </div>

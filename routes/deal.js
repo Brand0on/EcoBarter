@@ -29,12 +29,7 @@ dealRouter.post(
       author,
       image
     })
-      .then(() => {
-        res.redirect('/');
-      })
-      .catch((error) => {
-        next(error);
-      })
+
       .then((deal) => {
         console.log(deal);
         res.redirect('/');
@@ -60,6 +55,9 @@ dealRouter.get(
       .catch((error) => [next(error)]);
   }
 );
+dealRouter.get('/create', (req, res, next) => {
+  res.render('deals/create');
+});
 
 //POST '/:id/edit'
 dealRouter.post(

@@ -1,7 +1,7 @@
 
 <header style="display: flex; align-items:center; gap:16px">
-{{#if profile.picture}}
-  <img src="{{profile.picture}}" alt="{{profile.name}}" />
+{{#if profile.image}}
+  <img src="{{profile.image}}" alt="{{profile.name}}" />
 {{/if}}
 
 <h1>{{profile.name}}</h1>
@@ -11,12 +11,16 @@
   <a href="/profile/edit">Edit Profile</a>
   {{/if}}
 
-  {{#if connect}}
+  {{#unless isOwnProfile}}
+
+   {{#if connect}}
 
   {{!-- Show follow button if no "follow" relationship exists --}}
   <form method="post" action="/profile/{{profile._id}}/disconnect" >
   <button>Connected</button>
   </form>
+
+  <p>{{connect.connected.email}}</p>
 
   {{else}}
 
@@ -25,6 +29,9 @@
   <button>Connect</button>
   </form>
   {{/if}}
+  {{/unless}}
+
+ 
 
 
 </header>

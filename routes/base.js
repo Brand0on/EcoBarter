@@ -4,45 +4,27 @@ const express = require('express');
 const router = express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const Deal = require('./../models/deal');
-const Connect = require('./../models/connect');
-//const { connect } = require('mongoose');
 
 router.get('/', (req, res, next) => {
-  const user = req.user && req.user._id;
-  const query = user ? { connector: user } : null;
-  let deals;
   Deal.find()
     .sort({
       createdAt: -1
     })
     .populate('author')
-    .then((dealsInfo) => {
-      deals = dealsInfo;
-      return Connect.find(query)
-        .then((connects) => {
-          const idsOfPeopleConnected = connects.map(
-            (connect) => connect.connected
-          );
-          return Deal.find({ author: idsOfPeopleConnected })
-            .sort({
-              createdAt: -1
-            })
-            .populate('author');
-        })
-        .then((dealsOfPeopleConnected) => {
-          const dealTotalInfo = deals.map((deal) =>
-            deal.getAddedInformation(req.user ? req.user._id : null)
-          );
-
-          const dealsFromConectedWidhtdealTotalInfo = deals.map((deal) => {
-            (deal) => deal.getAddedInformation(req.user ? req.user._id : null);
-          });
-
-          res.render('home', {
-            deals: dealTotalInfo,
-            dealsFromConnected: dealsFromConectedWidhtdealTotalInfo
-          });
-        });
+    .then((deals) => {
+      const dealTotalInfo = deals.map((deal) => {
+        const hasBeenUpdated =
+          String(deal.CreatedAt) !== String(deal.updatedAt);
+        const isOwn = req.user
+          ? String(req.user._id) === String(deal.author)
+          : false;
+        return {
+          ...deal.toJSON(),
+          hasBeenUpdated,
+          isOwn
+        };
+      });
+      res.render('home', { dealTotalInfo });
     })
     .catch((error) => {
       next(error);
