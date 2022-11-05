@@ -58,5 +58,7 @@
 
 - Other considerations
 - Wishlist
-  - editing only for your deals
-  -
+  - comments section in the deal page
+  - initial page(saying what is the app for and how to use it)
+  - favicon.ico
+  - Styling

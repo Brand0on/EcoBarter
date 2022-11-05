@@ -5,12 +5,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>{{title}}</title>
+    <title>EcoBarter</title>
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
+      <a href="/home">Home</a>
+      <a href="/">About us</a>
       {{#if user}}
         <a href="/profile/{{user.id}}">{{user.name}}'s Profile</a>
         <form action="/authentication/sign-out" method="POST">

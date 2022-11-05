@@ -32,7 +32,7 @@ router.post('/sign-up', upload.single('image'), (req, res, next) => {
     .then((user) => {
       req.session.userId = user._id;
       console.log('here');
-      res.redirect('/');
+      res.redirect('/home');
     })
     .catch((error) => {
       next(error);
@@ -58,7 +58,7 @@ router.post('/sign-in', (req, res, next) => {
     .then((result) => {
       if (result) {
         req.session.userId = user._id;
-        res.redirect('/');
+        res.redirect('/home');
       } else {
         return Promise.reject(new Error('Wrong password.'));
       }
@@ -70,7 +70,7 @@ router.post('/sign-in', (req, res, next) => {
 
 router.post('/sign-out', (req, res, next) => {
   req.session.destroy();
-  res.redirect('/');
+  res.redirect('/home');
 });
 
 module.exports = router;

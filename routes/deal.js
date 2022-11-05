@@ -32,7 +32,7 @@ dealRouter.post(
 
       .then((deal) => {
         console.log(deal);
-        res.redirect('/');
+        res.redirect('/home');
       })
       .catch((error) => {
         console.log(error);
@@ -66,7 +66,8 @@ dealRouter.post(
   upload.single('image'),
   (req, res, next) => {
     const { id } = req.params;
-    const { description } = req.body;
+    const { description, title } = req.body;
+
     let image;
     if (req.file) {
       image = req.file.path;
@@ -74,11 +75,12 @@ dealRouter.post(
 
     Deal.findByIdAndUpdate(id, {
       description,
+      title,
       image
     })
       .then((deal) => {
         console.log(deal.description);
-        res.redirect('/');
+        res.redirect('/home');
       })
       .catch((error) => {
         next(error);
@@ -91,7 +93,7 @@ dealRouter.post('/:id/delete', routeGuardMiddleware, (req, res, next) => {
   const { id } = req.params;
   Deal.findByIdAndDelete(id)
     .then(() => {
-      res.redirect('/');
+      res.redirect('/home');
     })
     .catch((error) => {
       next(error);
