@@ -1,4 +1,8 @@
-<form action="/authentication/sign-up" method="POST">
+<form
+  action="/authentication/sign-up"
+  method="POST"
+  enctype="multipart/form-data"
+>
   <label for="input-name">Name</label>
   <input type="text" id="input-name" name="name" placeholder="Your Name" />
 
@@ -12,6 +16,8 @@
     name="username"
     placeholder="A unique username"
   />
+  <label for="input-image">Profile Image <small>(optional)</small> </label>
+  <input type="file" name="image" id="input-image" />
 
   <label for="input-password">Password</label>
   <input
