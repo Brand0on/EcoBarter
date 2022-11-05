@@ -1,4 +1,4 @@
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   <label for="input-name">Name</label>
   <input
     type="text"
@@ -25,6 +25,8 @@
     placeholder="A unique username"
     value="{{profile.username}}"
   />
+  <label for="input-image">Profile Image <small>(optional)</small> </label>
+  <input type="file" name="image" id="input-image" />
 
   <button>Edit Profile</button>
 </form>
