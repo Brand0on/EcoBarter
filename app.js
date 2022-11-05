@@ -21,7 +21,9 @@ const profileRouter = require('./routes/profile');
 const authenticationRouter = require('./routes/authentication');
 
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
-
+hbs.registerHelper('formatDate', (date) => {
+  return `${date.toLocaleDateString('EU')} at ${date.toLocaleTimeString('EU')}`;
+});
 const app = express();
 
 console.log(process.env.CLOUDINARY_URL);
