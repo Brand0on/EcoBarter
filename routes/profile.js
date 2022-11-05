@@ -98,7 +98,7 @@ profileRouter.get('/:id', (req, res, next) => {
 
 profileRouter.post('/:id/connect', routeGuardMiddleware, (req, res, next) => {
   const { id } = req.params;
-  Follow.create({
+  Connect.create({
     connector: req.user._id,
     connected: id
   })

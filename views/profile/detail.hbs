@@ -7,28 +7,26 @@
 <h1>{{profile.name}}</h1>
   {{!-- If no user is authenticated, no action should be shown --}}
 
-{{#if user}}
+  {{#if isOwnProfile}}
+  <a href="/profile/edit">Edit Profile</a>
+  {{/if}}
 
-{{#if isOwnProfile}}
-<a href="/profile/edit">Edit Profile</a>
+  {{#if connect}}
 
-{{else}}
+  {{!-- Show follow button if no "follow" relationship exists --}}
+  <form method="post" action="/profile/{{profile._id}}/disconnect" >
+  <button>Connected</button>
+  </form>
 
-{{#if connect}}
+  {{else}}
 
-{{!-- Show follow button if no "follow" relationship exists --}}
-<form method="post" action="/profile/{{profile._id}}/disconnect" >
-<button>Connected</button>
-</form>
+  {{!-- Show following button if "follow" relationship exists --}}
+  <form method="post" action="/profile/{{profile._id}}/connect">
+  <button>Connect</button>
+  </form>
+  {{/if}}
 
-{{!-- Show following button if "follow" relationship exists --}}
-<form method="post" action="/profile/{{profile._id}}/connect">
-<button>Connect</button>
-</form>
 
-{{/if}}
-{{/if}}
-{{/if}}
 </header>
 
 <h3>{{profile.name}}'s Latest Deals</h3>
