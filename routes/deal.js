@@ -68,20 +68,18 @@ dealRouter.post(
   upload.single('image'),
   (req, res, next) => {
     const { id } = req.params;
-    const { message } = req.body;
-    let path;
+    const { description } = req.body;
+    let image;
     if (req.file) {
-      picture = req.file.path;
+      image = req.file.path;
     }
 
     Deal.findByIdAndUpdate(id, {
-      title,
       description,
-      type,
       image
     })
       .then((deal) => {
-        console.log(deal);
+        console.log(deal.description);
         res.redirect('/');
       })
       .catch((error) => {
