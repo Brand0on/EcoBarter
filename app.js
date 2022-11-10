@@ -68,6 +68,7 @@ app.use('/', baseRouter);
 app.use('/deal', dealRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/profile', profileRouter);
+app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
