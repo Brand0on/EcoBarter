@@ -86,4 +86,13 @@ label {
   margin-bottom: 0.5em;
 }
 
+/*ABOUT US */
+#aboutUs-explaining {
+  background-color: rgba(225, 238, 222, 0.877);
+}
+
+#aboutUs-advantages {
+  background-color: rgba(225, 238, 222, 0.877);
+}
+
 /*# sourceMappingURL=style.css.map */
