@@ -17,12 +17,14 @@
   <body>
     <div class="layout">
       <nav>
-        <img src="/images/ecobartelogo.png" alt="" />
-        <h2 id="title">EcoBarter</h2>
+        <div class="logo">
+          <img src="/images/ecobartelogo.png" alt="" />
+          <h2>EcoBarter</h2>
+        </div>
         <a class="link-layout" href="/home">Home</a>
         <a class="link-layout" href="/">About us</a>
         {{#if user}}
-          <a id="profile-view" href="/profile/{{user.id}}">{{user.name}}'s
+          <a class="link-layout" href="/profile/{{user.id}}">{{user.name}}'s
             Profile</a>
           <form action="/authentication/sign-out" method="POST">
             <button id="sign-out-profile">Sign Out</button>

@@ -16,8 +16,10 @@ a {
   color: red;
 }
 
+/* NAV BAR LAYOUT */
 nav {
   display: flex;
+  padding: 1.5em 0;
 }
 
 nav a,
@@ -34,6 +36,50 @@ nav button:not(:last-child) {
 nav a:first-child,
 nav button:first-child {
   margin-right: auto;
+}
+
+nav form {
+  margin-bottom: 0;
+}
+
+nav form button {
+  padding: 0.5em;
+  background-color: #e6e9dd;
+  border-radius: 5px;
+  color: #355549;
+  font-size: large;
+  margin-bottom: 0;
+}
+
+nav h2 {
+  background-color: #2c9647;
+  color: white;
+  border-radius: 8px;
+  padding: 0.2em;
+  margin-bottom: 0;
+}
+
+nav img {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+}
+
+nav a {
+  display: inline-flex;
+}
+
+nav .logo {
+  display: flex;
+  margin-right: auto;
+}
+
+nav .link-layout {
+  padding: 0.5em;
+  background-color: #e6e9dd;
+  border-radius: 5px;
+  color: #355549;
+  font-size: large;
 }
 
 h1,
@@ -54,6 +100,8 @@ p:not(:last-child) {
 img {
   width: 100%;
   max-width: 100%;
+  margin: 1.5em;
+  margin-right: 0em;
 }
 
 form {
@@ -98,7 +146,6 @@ label {
 #create-deal {
   padding: 0.5em;
   background-color: #e6e9dd;
-  margin-top: 3em;
   border-radius: 5px;
   color: #355549;
 }
@@ -142,34 +189,6 @@ label {
   object-position: center;
 }
 
-/* NAV BAR LAYOUT */
-.link-layout {
-  padding: 0.5em;
-  background-color: #e6e9dd;
-  border-radius: 5px;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  color: #355549;
-  font-size: large;
-}
-
-.layout img {
-  width: 50px;
-  height: 50px;
-  margin: 1.5em;
-  margin-right: 0em;
-}
-
-.layout #title {
-  margin-top: 1em;
-  margin-right: 4em;
-  margin-left: 0em;
-  background-color: #2c9647;
-  color: white;
-  border-radius: 8px;
-  padding: 0.2em;
-}
-
 /* ABOUT US */
 .about-us {
   border-radius: 1em;
@@ -199,7 +218,7 @@ label {
   margin-bottom: 1em;
 }
 
-.about-us #unorder-list {
+.about-us #order-list ul {
   border-radius: 1em;
   background-color: #e6e9dd;
   font-style: italic;
@@ -233,7 +252,6 @@ label {
 #sign-in,
 #sign-up,
 #offer-deal-button,
-#profile-view,
 #edit-deal,
 #delete-deal,
 #edit-profile,
@@ -253,23 +271,13 @@ label {
   margin-left: 17em;
 }
 
-#sign-out-profile {
-  padding: 0.5em;
-  background-color: #e6e9dd;
-  border-radius: 5px;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  color: #355549;
-  font-size: large;
-}
-
 .available-create {
   display: flex;
   flex-direction: row;
 }
 
 #create-deal {
-  margin-left: 30em;
+  margin-left: auto;
   margin-bottom: 1em;
 }
 
