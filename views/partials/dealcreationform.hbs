@@ -5,28 +5,22 @@
   enctype="multipart/form-data"
 >
   <div>
-    <div>
-      <label for="input-title"> Deal Title</label>
-      <textarea name="title" id="input-title"></textarea>
-    </div>
 
-    <div>
-      <label for="input-description">Deal description</label>
-      <textarea name="description" id="input-description"></textarea>
-    </div>
+    <label for="input-title"> Deal Title</label>
+    <textarea name="title" id="input-title"></textarea>
 
-    <div>
-      <label for="deal-type">Select the deal type
+    <label for="input-description">Deal description</label>
+    <textarea name="description" id="input-description"></textarea>
 
-      </label>
-      <select name="type" id="type"><option
-          value="object"
-        >Object</option><option value="service">Service</option></select>
-    </div>
-    <div>
-      <label for="input-image">Image </label>
-      <input type="file" name="image" id="input-image" />
-    </div>
+    <label for="deal-type">Select the deal type
+
+    </label>
+    <select name="type" id="type"><option value="object">Object</option><option
+        value="service"
+      >Service</option></select>
+
+    <label for="input-image">Image </label>
+    <input type="file" name="image" id="input-image" />
 
     <button id="offer-deal-button">Offer Deal</button>
   </div>

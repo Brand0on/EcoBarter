@@ -86,15 +86,14 @@ label {
   margin-bottom: 0.5em;
 }
 
-/*ABOUT US */
+/*ABOUT US 
 #aboutUs-explaining {
   background-color: rgba(225, 238, 222, 0.877);
 }
-
 #aboutUs-advantages {
   background-color: rgba(225, 238, 222, 0.877);
 }
-
+*/
 /* HOME PAGE */
 #create-deal {
   padding: 0.5em;
@@ -163,7 +162,7 @@ label {
 
 .layout #title {
   margin-top: 1em;
-  margin-right: 7em;
+  margin-right: 4em;
   margin-left: 0em;
   background-color: #2c9647;
   color: white;
@@ -180,7 +179,7 @@ label {
 }
 
 .about-us img {
-  width: 50px;
+  width: 70px;
 }
 
 .about-us strong {
@@ -192,23 +191,27 @@ label {
 }
 
 .about-us #order-list {
-  background-color: #c6dac0;
+  border-radius: 1em;
+  background-color: #e6e9dd;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: large;
   font-style: italic;
+  margin-bottom: 1em;
 }
 
 .about-us #unorder-list {
-  background-color: rgba(143, 196, 146, 0.753);
+  border-radius: 1em;
+  background-color: #e6e9dd;
   font-style: italic;
 }
 
-.about-us #prohibited {
-  background-color: #df5e5e;
+.about-us #prohibited-list {
+  border-radius: 1em;
+  background-color: #e79e9e;
 }
 
-.about-us #prohibited-list {
-  background-color: #e79e9e;
+.about-us #prohibited-list h2 {
+  margin-left: 1em;
 }
 
 /* CREATION FORM*/
@@ -224,12 +227,50 @@ label {
   border-color: green;
   border-radius: 0.5em;
   border-width: 3px;
+  width: 100%;
 }
 
-#offer-deal-button {
+#sign-in,
+#sign-up,
+#offer-deal-button,
+#profile-view,
+#edit-deal,
+#delete-deal,
+#edit-profile,
+#delete-account,
+#start-bartering {
+  padding: 0.5em;
   background-color: #e6e9dd;
-  padding: 1em;
-  color: yellow;
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #355549;
+  font-size: large;
+}
+
+#start-bartering {
+  margin-bottom: 20em;
+  margin-left: 17em;
+}
+
+#sign-out-profile {
+  padding: 0.5em;
+  background-color: #e6e9dd;
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: #355549;
+  font-size: large;
+}
+
+.available-create {
+  display: flex;
+  flex-direction: row;
+}
+
+#create-deal {
+  margin-left: 30em;
+  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */

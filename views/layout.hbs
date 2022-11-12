@@ -22,9 +22,10 @@
         <a class="link-layout" href="/home">Home</a>
         <a class="link-layout" href="/">About us</a>
         {{#if user}}
-          <a href="/profile/{{user.id}}">{{user.name}}'s Profile</a>
+          <a id="profile-view" href="/profile/{{user.id}}">{{user.name}}'s
+            Profile</a>
           <form action="/authentication/sign-out" method="POST">
-            <button>Sign Out</button>
+            <button id="sign-out-profile">Sign Out</button>
           </form>
         {{else}}
           <a class="link-layout" href="/authentication/sign-in">Sign In</a>
