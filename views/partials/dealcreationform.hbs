@@ -1,20 +1,34 @@
-<form method="POST" action="/deal/create" enctype="multipart/form-data">
+<form
+  class="creation-form"
+  method="POST"
+  action="/deal/create"
+  enctype="multipart/form-data"
+>
+  <div>
+    <div>
+      <label for="input-title"> Deal Title</label>
+      <textarea name="title" id="input-title"></textarea>
+    </div>
 
-  <label for="input-title"> Deal Title</label>
-  <textarea name="title" id="input-title"></textarea>
+    <div>
+      <label for="input-description">Deal description</label>
+      <textarea name="description" id="input-description"></textarea>
+    </div>
 
-  <label for="input-description">Deal description</label>
-  <textarea name="description" id="input-description"></textarea>
+    <div>
+      <label for="deal-type">Select the deal type
 
-  <label for="deal-type">Select the deal type
+      </label>
+      <select name="type" id="type"><option
+          value="object"
+        >Object</option><option value="service">Service</option></select>
+    </div>
+    <div>
+      <label for="input-image">Image </label>
+      <input type="file" name="image" id="input-image" />
+    </div>
 
-  </label>
-  <select name="type" id="type"><option value="object">Object</option><option
-      value="service"
-    >Service</option></select>
+    <button id="offer-deal-button">Offer Deal</button>
+  </div>
 
-  <label for="input-image">Image </label>
-  <input type="file" name="image" id="input-image" />
-
-  <button>Offer Deal</button>
 </form>

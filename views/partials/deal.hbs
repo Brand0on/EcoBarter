@@ -1,22 +1,28 @@
-<div>
-  <div id="home-deal-image">
-    {{#if image}}
-      <img src="{{image}}" alt="description" />
-    {{/if}}
+<div class="deal-body">
+  <div class="header">
+    <div>
+      {{#if image}}
+        <img src="{{image}}" alt="description" />
+      {{/if}}
+    </div>
+
+    <div>
+      <h3>General Information</h3>
+      <h4>{{title}}</h4>
+      <h4>{{type}}</h4>
+
+      <small>{{formatDate createdAt}}
+        - by
+        <span>
+          <a href="/profile/{{author._id}}">{{author.name}}</a></span>
+      </small>
+    </div>
   </div>
 
-  <span>
-    <div id="home-deal-type"><h3>{{type}}</h3></div>
-    <div><h3>{{title}}</h3></div>
-
-  </span>
-  <div id="home-deal-description"><p>{{description}}</p></div>
-
-  <div id="home-deal-timeAndWho"><small>{{formatDate createdAt}}
-      - by
-      <span>
-        <a href="/profile/{{author._id}}">{{author.name}}</a></span>
-    </small></div>
+  <div class="description">
+    <h3>Description</h3>
+    <p>{{description}}</p>
+  </div>
 
   {{#if isOwn}}
     <a href="/deal/{{_id}}/edit">Edit</a>

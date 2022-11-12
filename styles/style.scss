@@ -13,14 +13,14 @@ body {
   max-width: 52em;
   padding: 0 1em;
   margin: 0 auto;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-family: $font-sans;
   line-height: 2;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: red;
 }
 
 nav {
@@ -90,4 +90,134 @@ label {
 }
 #aboutUs-advantages {
   background-color: rgba(225, 238, 222, 0.877);
+}
+
+/* HOME PAGE */
+
+#create-deal {
+  padding: 0.5em;
+  background-color: rgb(230, 233, 221);
+  margin-top: 3em;
+  border-radius: 5px;
+  color: rgb(53, 85, 73);
+}
+.deal-body {
+  border-radius: 1em;
+  background-color: rgb(245, 245, 245);
+  padding: 1em;
+  margin-bottom: 2em;
+
+  .description,
+  .header div {
+    background-color: rgb(230, 233, 221);
+    border-radius: 1em;
+    padding: 0.6em;
+  }
+
+  .description {
+    margin-top: 1em;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+
+    h4 {
+      font-size: 16px;
+    }
+
+    div:not(:last-child) {
+      margin-right: 1em;
+    }
+
+    img {
+      width: 442px;
+      height: 250px;
+      border-radius: 1em;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
+
+/* NAV BAR LAYOUT */
+.link-layout {
+  padding: 0.5em;
+  background-color: rgb(230, 233, 221);
+  border-radius: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: rgb(53, 85, 73);
+  font-size: large;
+}
+.layout {
+  img {
+    width: 50px;
+    height: 50px;
+    margin: 1.5em;
+    margin-right: 0em;
+  }
+  #title {
+    margin-top: 1em;
+    margin-right: 7em;
+    margin-left: 0em;
+    background-color: rgb(44, 150, 71);
+    color: white;
+    border-radius: 8px;
+    padding: 0.2em;
+  }
+}
+/* ABOUT US */
+.about-us {
+  border-radius: 1em;
+  padding: 1em;
+  background-color: rgb(245, 245, 245);
+  margin-bottom: 1em;
+  img {
+    width: 50px;
+  }
+  strong {
+    color: rgb(44, 150, 71);
+  }
+  h2 {
+    font-family: serif;
+  }
+  #order-list {
+    background-color: rgb(198, 218, 192);
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+    font-style: italic;
+  }
+  #unorder-list {
+    background-color: rgba(143, 196, 146, 0.753);
+    font-style: italic;
+  }
+  #prohibited {
+    background-color: rgb(223, 94, 94);
+  }
+  #prohibited-list {
+    background-color: rgb(231, 158, 158);
+  }
+}
+
+/* CREATION FORM*/
+
+#input-title,
+#input-description,
+#type,
+#input-image,
+#input-email,
+#input-password,
+#input-name,
+#input-username {
+  border-style: dashed;
+  border-color: green;
+  border-radius: 0.5em;
+  border-width: 3px;
+}
+#offer-deal-button {
+  background-color: rgb(230, 233, 221);
+  padding: 1em;
+  color: yellow;
 }
